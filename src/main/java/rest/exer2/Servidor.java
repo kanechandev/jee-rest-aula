@@ -1,4 +1,4 @@
-package rest.exer1;
+package rest.exer2;
 
 import java.net.URI;
 
@@ -14,7 +14,7 @@ public class Servidor {
 		try {
 			URI uri = UriBuilder.fromUri("http://localhost").port(8080).build();
 			ResourceConfig config = new ResourceConfig();
-			config.packages("rest.exer1");
+			config.packages("rest.exer2");
 			HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
 			System.out.println("Servidor está levantado..."+server);
 		} catch (Exception e) {
