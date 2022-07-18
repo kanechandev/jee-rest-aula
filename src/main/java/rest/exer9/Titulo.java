@@ -23,10 +23,10 @@ public class Titulo {
 	public void validar() throws NegocioException{
 		String erros = "";
 		if(sacado == null) {
-			erros+="Sacado é obrigatório";
+			erros+="Sacado é obrigatório.";
 		}
 		if(valor == 0) {
-			erros+="Valor é obrigatório";
+			erros+="Valor é obrigatório.";
 		}
 		if(!erros.isEmpty()) {
 			throw new NegocioException(erros);
