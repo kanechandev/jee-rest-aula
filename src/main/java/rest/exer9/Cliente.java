@@ -24,6 +24,13 @@ public class Cliente {
 		resposta.close();
 	}
 	
+	private static void deletar(String sacado) {
+		WebTarget web = criar().path("/deletar");
+		Response resposta = web.queryParam("sacado", sacado).request().delete();
+		System.out.println(resposta.getStatus()+" - "+resposta.readEntity(String.class));
+		resposta.close();
+	}
+	
 	private static void listar() {
 		WebTarget web = criar().path("/listar");
 		Response resposta = web.request().get();
@@ -37,9 +44,12 @@ public class Cliente {
 
 	public static void main(String[] args) {
 		criar(new Titulo());
-		criar(new Titulo("João", 150));
-		criar(new Titulo("José", 375));
+		criar(new Titulo("Joao", 150));
+		criar(new Titulo("Jose", 375));
 		criar(new Titulo("Amadeu", 423));
+		listar();
+		deletar("mister");
+		deletar("Joao");
 		listar();
 	}
 
